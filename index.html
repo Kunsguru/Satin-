@@ -164,12 +164,7 @@
             }
         }
 
-        function playMedia(element) {
-            requestPassword(() => {
-                element.play();
-            });
-        }
-
+        
         function downloadMedia(url) {
             requestPassword(() => {
                 const link = document.createElement('a');
