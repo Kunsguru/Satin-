@@ -122,6 +122,33 @@
             width: 100%;
             height: auto;
         }
+
+        .business-model {
+            display: none;
+            padding: 2em;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button-container button:hover {
+            background-color: #45a049;
+        }
     </style>
     <script>
         document.addEventListener('contextmenu', function(event) {
@@ -137,7 +164,12 @@
             }
         }
 
-        
+        function playMedia(element) {
+            requestPassword(() => {
+                element.play();
+            });
+        }
+
         function downloadMedia(url) {
             requestPassword(() => {
                 const link = document.createElement('a');
@@ -147,6 +179,20 @@
                 link.click();
                 document.body.removeChild(link);
             });
+        }
+
+        function showBusinessModel() {
+            document.getElementById('business-model').style.display = 'block';
+            window.location.href = '#business-model';
+        }
+
+        function hideBusinessModel() {
+            document.getElementById('business-model').style.display = 'none';
+            window.location.href = '#about';
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </head>
@@ -190,6 +236,7 @@
         <h2>About Us</h2>
         <img src="/IMG-20240707-WA0058.jpg" alt="Livewell Housing Solutions Ltd" class="cover-image">
         <p>Livewell Housing Solutions Ltd is dedicated to providing quality housing solutions and expert advice on property management.</p>
+        <button onclick="showBusinessModel()">Important: Click Me</button>
     </section>
 
     <section id="media">
@@ -228,6 +275,87 @@
         </form>
     </section>
 
+    <section id="business-model" class="business-model">
+        <h2>Business Model of Livewell Housing Solutions Ltd</h2>
+        <p><strong>Motto:</strong> ... Own Your Tomorrow.</p>
+
+        <h3>Who We Are:</h3>
+        <p>Livewell Housing Solution Ltd is a premier housing service provider dedicated to easing the financial burden of rent and homeownership.</p>
+
+        <h3>Our Mission:</h3>
+        <p>To empower individuals and families to secure their desired living spaces, ease the burden of rent with financial flexibility and security.</p>
+
+        <h3>Our Vision:</h3>
+        <p>To revolutionize the housing market by providing innovative, accessible, and reliable housing solutions.</p>
+
+        <h3>Core Service Plans</h3>
+
+        <h4>1. Livewell Ease Rents:</h4>
+        <p><strong>Objective:</strong> Provide clients with their desired apartment and facilitate ease of rent payment.</p>
+        <p><strong>Membership Fee:</strong> #10,000 (Naira) (non-refundable, one-time payment).</p>
+        <p><strong>Security Deposit:</strong> 50% of the total rent.</p>
+        <p><strong>Funding Process:</strong></p>
+        <ul>
+            <li>Processed within 30-90 days.</li>
+            <li>Payment made directly to the landlord.</li>
+        </ul>
+        <p><strong>Repayment Terms:</strong></p>
+        <ul>
+            <li>Payback within 6 to 10 months with a 1.5% monthly interest charge.</li>
+            <li>Default charges applied against the security deposit with incremental interest rates.</li>
+        </ul>
+
+        <h4>2. Livewell Lease Plan:</h4>
+        <p><strong>Objective:</strong> Offer long-term rent stability and eliminate rent worries.</p>
+        <p><strong>Plan Options:</strong></p>
+        <ul>
+            <li>7-Year Rent Plan: Deposit Five year's rent upfront.</li>
+            <li>15-Year Rent Plan: Deposit ten years' rent upfront.</li>
+        </ul>
+        <p><strong>Loan Facility:</strong> Eligible for loans up to 50% of the enrolled package with a 1.5% monthly interest.</p>
+        <p><strong>Benefits:</strong> Extended rent stability and financial flexibility.</p>
+
+        <h4>3. Livewell Co-operative Community:</h4>
+        <p><strong>Objective:</strong> Promote a saving culture and provide financial benefits.</p>
+        <p><strong>Saving Plan:</strong> Save monthly and qualify for loans twice the saved amount after 6 consecutive months.</p>
+        <p><strong>Membership Fee:</strong> #10,000 (Naira) (one time).</p>
+        <p><strong>Savings:</strong> #10,000 (Naira) (monthly payment) minimum and maximum any amount.</p>
+        <p><strong>Loan Terms:</strong> One-time interest fee of 1.5%.</p>
+        <p><strong>Member Benefits:</strong> Free housing benefits and incentives.</p>
+
+        <h3>Organizational Structure:</h3>
+        <p><strong>Hybrid Operations System.</strong></p>
+
+        <h4>Key Roles</h4>
+
+        <h5>1. Relationship Officers:</h5>
+        <p><strong>Role:</strong> Introduce and explain company plans to potential customers.</p>
+        <p><strong>Incentives:</strong> Regular bonuses and incentives for performance.</p>
+        <p><strong>Reporting:</strong> Directly to Community Managers.</p>
+        <p><strong>Flexibility:</strong> Can operate from anywhere in the country.</p>
+
+        <h5>2. Community Managers:</h5>
+        <p><strong>Role:</strong> Recruit and motivate Relationship Officers.</p>
+        <p><strong>Innovations:</strong> Organize workshops, seminars, and set up communication channels like WhatsApp groups.</p>
+        <p><strong>Rewards:</strong> Recommend officers for rewards and oversee team performance.</p>
+        <p><strong>Reporting:</strong> To Executives.</p>
+        <p><strong>Team Identity:</strong> Create unique team names and earn 10% of team efforts.</p>
+
+        <h5>3. Executives:</h5>
+        <p><strong>Composition:</strong> Manager, Risk Assessment Officers, Secretary, HR, and P.R.O.</p>
+        <p><strong>Role:</strong> Ensure smooth operations, provide solutions, and support the entire organization.</p>
+        <p><strong>Responsibility:</strong> Oversee company operations and maintain operational efficiency.</p>
+
+        <p>Livewell Housing Solution Ltd is dedicated to providing innovative and accessible housing solutions.</p>
+        <p><strong>Our Commitment:</strong> Empowering you to "Own Your Tomorrow" with financial flexibility and security.</p>
+        <p><strong>Join Us:</strong> Be part of a community that values your future and works towards making your housing dreams a reality.</p>
+
+        <div class="button-container">
+            <button onclick="hideBusinessModel()">Go Back</button>
+            <button onclick="scrollToTop()">Move to Top</button>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2024 Livewell Housing Solutions Ltd. All rights reserved.</p>
     </footer>
@@ -243,5 +371,6 @@
     </script>
 </body>
 </html>
+
 
 
