@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livewell Housing Solutions Ltd</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            padding: 1em;
+            background-color: #4CAF50;
+            color: white;
+            position: relative;
+            width: 100%;
+            top: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 2em;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cover-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 1em;
+        }
+
+        .thumbnail-gallery {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1em;
+        }
+
+        .thumbnail {
+            width: 30%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .media-content {
+            width: 100%;
+            height: auto;
+            margin-bottom: 1em;
+        }
+
+        .download-link {
+            display: block;
+            margin-top: 0.5em;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .download-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #4CAF50;
+            color: white;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 60px;
+        }
+
+        form label {
+            margin-top: 10px;
+        }
+
+        form input, form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <script>
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+
+        function requestPassword(callback) {
+            const password = prompt('Please enter the password to access this content:');
+            if (password === 'correctPassword') {
+                callback();
+            } else {
+                alert('Incorrect password. Access denied.');
+            }
+        }
+
+        
+        function downloadMedia(url) {
+            requestPassword(() => {
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = url.split('/').pop();
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Livewell Housing Solutions Ltd</h1>
+        <p><strong>Motto</strong>: <i>...own your tomorrow</i>.</p>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Home</h2>
+        <img src="/IMG-20240707-WA0058.jpg" alt="Cover Image" class="cover-image">
+        <p>Your trusted partner in housing solutions.</p>
+    </section>
+
+    <section id="services">
+        <h2>Services</h2>
+        <div class="thumbnail-gallery">
+            <img src="/IMG-20240707-WA0064.jpg" alt="Rent Palava" class="thumbnail">
+            <img src="/IMG-20240710-WA0311.jpg" alt="Hiring Community Managers" class="thumbnail">
+            <img src="/IMG-20240708-WA0378.jpg" alt="Ease Rent" class="thumbnail">
+        </div>
+        <ul>
+            <li>Ease Rent</li>
+            <li>Lease Plan</li>
+            <li>Co-operative Community</li>
+            <li>Property Management</li>
+            <li>Real Estate Consultancy</li>
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <img src="/IMG-20240707-WA0058.jpg" alt="Livewell Housing Solutions Ltd" class="cover-image">
+        <p>Livewell Housing Solutions Ltd is dedicated to providing quality housing solutions and expert advice on property management.</p>
+    </section>
+
+    <section id="media">
+        <h2>Media</h2>
+        <div class="media-content">
+            <h3>Company Overview Video</h3>
+            <video controls onplay="playMedia(this)">
+                <source src="/lv-0-20240716222800.MP4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <a href="#" onclick="downloadMedia('/lv-0-20240716222800.MP4')" class="download-link">Download Video</a>
+        </div>
+        <div class="media-content">
+            <h3> Listen to the Business Model </h3>
+            <audio controls onplay="playMedia(this)">
+                <source src="/PTT-20240710-WA0082 (1)- (online-audio-converter.com).mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <a href="#" onclick="downloadMedia('/PTT-20240710-WA0082 (1)- (online-audio-converter.com).mp3')" class="download-link">Download Voice Note</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form id="contact-form" action="mailto:livewell.equity@gmail.com?cc=mondaykingsley80@gmail.com" method="post" enctype="text/plain">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Livewell Housing Solutions Ltd. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            window.location.href = `mailto:livewell.equity@gmail.com?cc=mondaykingsley80@gmail.com&subject=Contact%20Form%20Submission&body=Name:%20${name}%0AEmail:%20${email}%0AMessage:%20${message}`;
+        });
+    </script>
+</body>
+</html>
+
+
